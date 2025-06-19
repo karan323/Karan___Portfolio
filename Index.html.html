@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Karan Mistry | Biomedical Engineer Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(135deg, #1a2980 0%, #26d0ce 100%);
+      color: #222;
+      min-height: 100vh;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    header {
+      background: linear-gradient(90deg, #43cea2 0%, #185a9d 100%);
+      color: #fff;
+      padding: 40px 0 30px 0;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+    .intro-img {
+      width: 160px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 16px;
+      border: 4px solid #fff;
+      box-shadow: 0 8px 32px rgba(26, 41, 128, 0.2);
+      margin-bottom: 18px;
+      transition: transform 0.3s;
+    }
+    .intro-img:hover {
+      transform: scale(1.05) rotate(-2deg);
+    }
+    h1 {
+      margin: 0 0 10px 0;
+      font-size: 2.6rem;
+      letter-spacing: 2px;
+      font-weight: 700;
+      text-shadow: 0 2px 12px rgba(24, 90, 157, 0.2);
+    }
+    .subtitle {
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+      opacity: 0.85;
+      font-weight: 500;
+    }
+    .contact-links {
+      margin-top: 10px;
+      font-size: 1rem;
+    }
+    .contact-links a {
+      color: #fff;
+      margin: 0 12px;
+      text-decoration: none;
+      transition: color 0.2s;
+      font-weight: 500;
+    }
+    .contact-links a:hover {
+      color: #ffd700;
+    }
+    section {
+      background: rgba(255, 255, 255, 0.97);
+      margin: 32px auto;
+      max-width: 900px;
+      border-radius: 18px;
+      box-shadow: 0 4px 24px rgba(26, 41, 128, 0.08);
+      padding: 36px 32px 28px 32px;
+      animation: fadeInUp 1s;
+      margin-bottom: 36px;
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    h2 {
+      color: #185a9d;
+      border-left: 6px solid #43cea2;
+      padding-left: 12px;
+      font-size: 1.5rem;
+      margin-top: 0;
+      margin-bottom: 18px;
+      letter-spacing: 1px;
+      font-weight: 600;
+    }
+    ul {
+      margin: 0 0 0 1.2em;
+      padding-left: 0;
+      list-style-type: disc;
+      color: #444;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+    li {
+      margin-bottom: 0.5em;
+    }
+    /* Updated Professional Skills Section */
+    .skills-container {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .skill-category {
+      margin-bottom: 8px;
+    }
+    .skill-category h3 {
+      color: #185a9d;
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+      font-weight: 600;
+      border-bottom: 2px solid #43cea2;
+      padding-bottom: 6px;
+      display: inline-block;
+    }
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .skill-item {
+      background: #f8fafd;
+      border: 1px solid #e1e8f0;
+      border-radius: 6px;
+      padding: 8px 16px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #2d3748;
+      box-shadow: 0 2px 4px rgba(26, 41, 128, 0.05);
+      transition: all 0.2s ease;
+    }
+    .skill-item:hover {
+      background: #e6f7ff;
+      border-color: #43cea2;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(67, 206, 162, 0.1);
+    }
+    /* Enhanced Fieldwork Gallery */
+    .fieldwork-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin: 24px 0;
+    }
+    .fw-card {
+      position: relative;
+      width: 100%;
+      height: 240px;
+      overflow: hidden;
+      border-radius: 14px 14px 0 0;
+      box-shadow: 0 4px 20px rgba(24, 90, 157, 0.1);
+      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+    .fw-card:hover {
+      transform: scale(1.3);
+      z-index: 100;
+      box-shadow: 0 12px 40px rgba(24, 90, 157, 0.3);
+    }
+    .fw-image-container {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    .fw-image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .fw-card:hover .fw-image-container img {
+      transform: scale(1.1);
+    }
+    .fw-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 16px;
+      background: rgba(26, 41, 128, 0.9);
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-align: center;
+      border-radius: 0 0 14px 14px;
+      box-sizing: border-box;
+      white-space: normal;
+      word-wrap: break-word;
+      transition: background-color 0.3s ease;
+    }
+    .fw-card:hover .fw-caption {
+      background: rgba(26, 41, 128, 0.36); /* Reduced transparency by 60% */
+    }
+    .fieldwork-desc {
+      font-size: 1.1rem;
+      color: #333;
+      margin-top: 10px;
+      background: #f8fafd;
+      border-radius: 8px;
+      padding: 16px;
+      box-shadow: 0 2px 8px rgba(67, 206, 162, 0.1);
+    }
+    .timeline {
+      border-left: 3px solid #43cea2;
+      padding-left: 18px;
+      margin-left: 8px;
+    }
+    .timeline-item {
+      margin-bottom: 24px;
+      position: relative;
+    }
+    .timeline-item:before {
+      content: '';
+      position: absolute;
+      left: -28px;
+      top: 7px;
+      width: 16px;
+      height: 16px;
+      background: linear-gradient(135deg, #43cea2 0%, #185a9d 100%);
+      border-radius: 50%;
+      box-shadow: 0 2px 8px #185a9d44;
+      border: 3px solid #fff;
+    }
+    .timeline-title {
+      font-weight: bold;
+      color: #185a9d;
+      font-size: 1.1rem;
+      margin-bottom: 6px;
+    }
+    .timeline-date {
+      font-size: 0.97rem;
+      color: #26d0ce;
+      margin-bottom: 8px;
+    }
+    /* Enhanced Cadaver Workshop Section */
+    .cadaver-section {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+    .cadaver-image {
+      flex: 0 0 340px;
+      max-width: 340px;
+      width: 100%;
+      border-radius: 14px;
+      box-shadow: 0 4px 24px #185a9d33;
+      overflow: hidden;
+      background: #000;
+      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      position: relative;
+    }
+    .cadaver-image img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .cadaver-image:hover {
+      transform: scale(1.3);
+      z-index: 100;
+      box-shadow: 0 12px 40px rgba(24, 90, 157, 0.3);
+    }
+    .cadaver-image:hover img {
+      transform: scale(1.1);
+    }
+    .cadaver-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 12px;
+      background: rgba(26, 41, 128, 0.9);
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-align: center;
+      box-sizing: border-box;
+      white-space: normal;
+      word-wrap: break-word;
+      transition: background-color 0.3s ease;
+    }
+    .cadaver-image:hover .cadaver-caption {
+      background: rgba(26, 41, 128, 0.36); /* Reduced transparency by 60% */
+    }
+    .cadaver-desc {
+      flex: 1 1 300px;
+      font-size: 1.08rem;
+      color: #333;
+      background: #f8fafd;
+      border-radius: 8px;
+      padding: 18px 22px;
+      box-shadow: 0 2px 8px #43cea222;
+      text-align: justify;
+    }
+    /* Enhanced MIS Surgery Section */
+    .mis-section {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+    .mis-image {
+      flex: 0 0 340px;
+      max-width: 340px;
+      width: 100%;
+      border-radius: 14px;
+      box-shadow: 0 4px 24px #185a9d33;
+      overflow: hidden;
+      background: #000;
+      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      position: relative;
+    }
+    .mis-image img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .mis-image:hover {
+      transform: scale(1.3);
+      z-index: 100;
+      box-shadow: 0 12px 40px rgba(24, 90, 157, 0.3);
+    }
+    .mis-image:hover img {
+      transform: scale(1.1);
+    }
+    .mis-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 12px;
+      background: rgba(26, 41, 128, 0.9);
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-align: center;
+      box-sizing: border-box;
+      white-space: normal;
+      word-wrap: break-word;
+      transition: background-color 0.3s ease;
+    }
+    .mis-image:hover .mis-caption {
+      background: rgba(26, 41, 128, 0.36); /* Reduced transparency by 60% */
+    }
+    .mis-desc {
+      flex: 1 1 300px;
+      font-size: 1.08rem;
+      color: #333;
+      background: #f8fafd;
+      border-radius: 8px;
+      padding: 18px 22px;
+      box-shadow: 0 2px 8px #43cea222;
+      text-align: justify;
+    }
+    /* New EANS Conference Section */
+    .eans-section {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-top: 20px;
+    }
+    .eans-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin: 24px 0;
+    }
+    .eans-card {
+      position: relative;
+      width: 100%;
+      height: 240px;
+      overflow: hidden;
+      border-radius: 14px;
+      box-shadow: 0 4px 20px rgba(24, 90, 157, 0.1);
+      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+    .eans-card:hover {
+      transform: scale(1.1);
+      z-index: 100;
+      box-shadow: 0 12px 40px rgba(24, 90, 157, 0.3);
+    }
+    .eans-image-container {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    .eans-image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .eans-card:hover .eans-image-container img {
+      transform: scale(1.05);
+    }
+    .eans-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 16px;
+      background: rgba(26, 41, 128, 0.9);
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-align: center;
+      box-sizing: border-box;
+      white-space: normal;
+      word-wrap: break-word;
+      transition: background-color 0.3s ease;
+    }
+    .eans-card:hover .eans-caption {
+      background: rgba(26, 41, 128, 0.36);
+    }
+    .eans-desc {
+      font-size: 1.1rem;
+      color: #333;
+      background: #f8fafd;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(67, 206, 162, 0.1);
+      text-align: justify;
+    }
+    /* New ASSICON Conference Section */
+    .assicon-section {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-top: 20px;
+    }
+    .assicon-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin: 24px 0;
+    }
+    .assicon-card {
+      position: relative;
+      width: 100%;
+      height: 280px; /* Increased height for better image display */
+      overflow: hidden;
+      border-radius: 14px;
+      box-shadow: 0 4px 20px rgba(24, 90, 157, 0.1);
+      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+    .assicon-card:hover {
+      transform: scale(1.1);
+      z-index: 100;
+      box-shadow: 0 12px 40px rgba(24, 90, 157, 0.3);
+    }
+    .assicon-image-container {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    .assicon-image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .assicon-card:hover .assicon-image-container img {
+      transform: scale(1.05);
+    }
+    .assicon-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 16px;
+      background: rgba(26, 41, 128, 0.9);
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-align: center;
+      box-sizing: border-box;
+      white-space: normal;
+      word-wrap: break-word;
+      transition: background-color 0.3s ease;
+    }
+    .assicon-card:hover .assicon-caption {
+      background: rgba(26, 41, 128, 0.36);
+    }
+    .assicon-desc {
+      font-size: 1.1rem;
+      color: #333;
+      background: #f8fafd;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(67, 206, 162, 0.1);
+      text-align: justify;
+    }
+    /* New Robarts Research Section */
+    .robarts-section {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-top: 20px;
+    }
+    .robarts-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin: 24px 0;
+    }
+    .robarts-card {
+      position: relative;
+      width: 100%;
+      height: 300px; /* Increased height for better image display */
+      overflow: hidden;
+      border-radius: 14px;
+      box-shadow: 0 4px 20px rgba(24, 90, 157, 0.1);
+      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+    .robarts-card:hover {
+      transform: scale(1.1);
+      z-index: 100;
+      box-shadow: 0 12px 40px rgba(24, 90, 157, 0.3);
+    }
+    .robarts-image-container {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    .robarts-image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .robarts-card:hover .robarts-image-container img {
+      transform: scale(1.05);
+    }
+    .robarts-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 16px;
+      background: rgba(26, 41, 128, 0.9);
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-align: center;
+      box-sizing: border-box;
+      white-space: normal;
+      word-wrap: break-word;
+      transition: background-color 0.3s ease;
+    }
+    .robarts-card:hover .robarts-caption {
+      background: rgba(26, 41, 128, 0.36);
+    }
+    .robarts-desc {
+      font-size: 1.1rem;
+      color: #333;
+      background: #f8fafd;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(67, 206, 162, 0.1);
+      text-align: justify;
+    }
+    @media (max-width: 900px) {
+      .fieldwork-gallery, .eans-gallery, .assicon-gallery, .robarts-gallery {
+        grid-template-columns: 1fr;
+      }
+      .fw-card:hover, .cadaver-image:hover, .mis-image:hover, .eans-card:hover, .assicon-card:hover, .robarts-card:hover {
+        transform: scale(1.15);
+      }
+      .cadaver-section, .mis-section {
+        flex-direction: column;
+        gap: 16px;
+      }
+      .cadaver-image, .mis-image {
+        max-width: 95vw;
+        width: 100%;
+      }
+      .cadaver-image img, .mis-image img {
+        height: 180px;
+      }
+      .cadaver-desc, .mis-desc {
+        padding: 14px 10px;
+      }
+      .assicon-card, .robarts-card {
+        height: 240px;
+      }
+    }
+    @media (max-width: 600px) {
+      section {
+        padding: 24px 16px;
+      }
+      .intro-img {
+        width: 120px;
+        height: 150px;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      .cadaver-image img, .mis-image img {
+        height: 140px;
+      }
+      .skill-item {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+      }
+      .fw-caption, .cadaver-caption, .mis-caption, .eans-caption, .assicon-caption, .robarts-caption {
+        font-size: 0.9rem;
+        padding: 10px;
+      }
+      .assicon-card, .robarts-card {
+        height: 200px;
+      }
+    }
+</style>
+</head>
+<body>
+<header>
+<img alt="Karan Mistry" class="intro-img" src="1.jpg"/>
+<h1>Karan Mistry</h1>
+<div class="subtitle">Biomedical Engineer | Clinical &amp; Technical Expert in Neuro-Navigation</div>
+<div class="contact-links">
+      80, Kenhatch Blvd, Toronto, M1S 3Y1 ·
+      <a href="tel:+14373662412">+1 (437) 366 2412</a> ·
+      <a href="mailto:karanmistry333@gmail.com">karanmistry333@gmail.com</a> ·
+      <a href="https://www.linkedin.com/in/karan-mistry33" rel="noopener noreferrer" target="_blank">LinkedIn</a>
+</div>
+</header>
+<section>
+<h2>Professional Summary</h2>
+<p>
+      Biomedical Engineer with 5 years of experience in clinical and technical support and surgical integration of neuro-navigation systems. Proven ability to drive surgical precision, optimize operating room workflows, and deliver technical training across diverse healthcare environments. Skilled in troubleshooting, calibration, and integration of medical imaging systems within regulatory frameworks.
+    </p>
+</section>
+<section>
+<h2>Technical Skills</h2>
+<div class="skills-container">
+  <div class="skill-category">
+    <h3>Medical Imaging & Navigation</h3>
+    <div class="skills-list">
+      <span class="skill-item">Neuro-navigation Systems</span>
+      <span class="skill-item">MRI/CT/X-ray Imaging</span>
+      <span class="skill-item">DICOM/PACS Integration</span>
+      <span class="skill-item">3D Slicer</span>
+      <span class="skill-item">Surgical Navigation</span>
+    </div>
+  </div>
+  <div class="skill-category">
+    <h3>Technical Expertise</h3>
+    <div class="skills-list">
+      <span class="skill-item">Medical Device Calibration</span>
+      <span class="skill-item">Python Programming</span>
+      <span class="skill-item">Raspberry Pi</span>
+      <span class="skill-item">Oscilloscope</span>
+      <span class="skill-item">Fluke Analyzer</span>
+    </div>
+  </div>
+  <div class="skill-category">
+    <h3>Clinical & Professional</h3>
+    <div class="skills-list">
+      <span class="skill-item">Operating Room Integration</span>
+      <span class="skill-item">Clinical Applications</span>
+      <span class="skill-item">Regulatory Compliance</span>
+      <span class="skill-item">CRM Systems</span>
+      <span class="skill-item">Biomedical Instrumentation</span>
+    </div>
+  </div>
+</div>
+</section>
+<section>
+<h2>Professional Experience</h2>
+<div class="timeline">
+<div class="timeline-item">
+<div class="timeline-title">Clinical Application Engineer | Claronav Kolahi Inc.</div>
+<div class="timeline-date">March 2024 – Present</div>
+<ul>
+<li>Supported neurosurgeons during brain and spine surgeries using advanced neuro-navigation systems, resulting in enhanced surgical precision and reduced intraoperative time.</li>
+<li>Conducted software testing, reported bugs, and developed quality documentation.</li>
+<li>Managed CRM and coordinated projects across QA and production teams for timely delivery.</li>
+<li>Delivered high-impact product demonstrations and technical consultations to neurosurgeons alongside sales leadership.</li>
+<li>Represented the company at EANS and ASSICON international conferences.</li>
+<li>Guided the software development team by contributing clinical workflow insights for the implementation of new navigation features, including 2D/3D C-arm calibration and tractography visualization, enhancing intraoperative imaging capabilities.</li>
+</ul>
+</div>
+<div class="timeline-item">
+<div class="timeline-title">Clinical Application Engineer | HRS Navigation</div>
+<div class="timeline-date">Jan 2022 – Jul 2023</div>
+<ul>
+<li>Built strong relationships with medical professionals to promote neuro-navigation systems across pan India.</li>
+<li>Supported 200+ complex surgeries with intraoperative guidance and system calibration.</li>
+<li>Managed end-to-end tender processes, ensuring accurate documentation and timely procurement aligned with institutional requirements.</li>
+<li>Maintained 98% system uptime through preventive maintenance and issue resolution.</li>
+<li>Managed calibration logs and compliance documents for hospital audits.</li>
+</ul>
+</div>
+<div class="timeline-item">
+<div class="timeline-title">Sales-Service Engineer | Meditech (GE Channel Partner)</div>
+<div class="timeline-date">Feb 2021 – Dec 2021</div>
+<ul>
+<li>Calibrated and maintained CT, X-ray, and BMD systems across allocated facilities, reducing downtime by 30%.</li>
+<li>Provided pre-sales support, demos, and training sessions for clinical staff.</li>
+<li>Contributed to the repair and seamless functioning of GE medical systems.</li>
+<li>Collaborated in troubleshooting and custom system integration.</li>
+</ul>
+</div>
+<div class="timeline-item">
+<div class="timeline-title">Intern Sales-Service Engineer | Genuine X-Ray Pvt. Ltd.</div>
+<div class="timeline-date">Mar 2020 – Jan 2021</div>
+<ul>
+<li>Acquired hands-on knowledge of X-ray manufacturing and service workflows.</li>
+<li>Assisted in the installation, sales, and maintenance of imaging systems.</li>
+<li>Supported post-sales service and training to clinical users.</li>
+<li>Collaborated in troubleshooting and custom system integration.</li>
+</ul>
+</div>
+</div>
+</section>
+<section>
+<h2>Education</h2>
+<div class="timeline">
+<div class="timeline-item">
+<div class="timeline-title">Advanced Diploma in Biomedical Engineering Technology – Centennial College</div>
+<div class="timeline-date">Sep 2023 – Apr 2025</div>
+<ul>
+<li>Working on research paper on pituitary tumor (Pituicytoma).</li>
+</ul>
+</div>
+<div class="timeline-item">
+<div class="timeline-title">Bachelors in Biomedical Engineering – L.D. College of Engineering</div>
+<div class="timeline-date">Aug 2017 – Apr 2020</div>
+<ul>
+<li>CGPA: 9.03</li>
+<li>Final Project: Infrared detection system for rheumatoid arthritis (Govt. SSIP funded).</li>
+<li>Winner of Garage42 Hackathon for innovative COVID-19 diagnostics.</li>
+</ul>
+</div>
+<div class="timeline-item">
+<div class="timeline-title">Diploma in Biomedical Engineering Technology – Govt. Polytechnic, Gandhinagar</div>
+<div class="timeline-date">Aug 2014 – Mar 2017</div>
+<ul>
+<li>CGPA: 9.52</li>
+<li>Ranked 1st in Biomedical Engineering across GTU; awarded Gold Medal.</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- FIELD WORK SEGMENT -->
+<section>
+<h2>Field Work</h2>
+<div class="fieldwork-gallery">
+<div class="fw-card">
+  <div class="fw-image-container">
+    <img alt="Cervical spine lateral mass screw fixation" src="3.jpg"/>
+  </div>
+  <div class="fw-caption">Cervical Spine Lateral Mass Screw Fixation</div>
+</div>
+<div class="fw-card">
+  <div class="fw-image-container">
+    <img alt="Scoliosis correction surgery navigation" src="2.jpg"/>
+  </div>
+  <div class="fw-caption">Scoliosis Correction Surgery Navigation</div>
+</div>
+<div class="fw-card">
+  <div class="fw-image-container">
+    <img alt="3D-based neuro-navigation in spine" src="13.JPG"/>
+  </div>
+  <div class="fw-caption">3D-Based Neuro-Navigation in Spine</div>
+</div>
+</div>
+<p class="fieldwork-desc">
+      Supporting intraoperative guidance using a 3D-based neuro-navigation system during complex spinal procedures. The first case involves cervical spine lateral mass screw fixation, where real-time navigation ensured precise screw trajectory and placement. The second case showcases support in a scoliosis correction surgery, utilizing a preoperative 3D CT scan to enhance anatomical visualization and improve surgical accuracy.
+    </p>
+</section>
+<!-- CADAVER WORKSHOP SEGMENT -->
+<section>
+<h2>Cadaver Workshop Experience</h2>
+<div class="cadaver-section">
+<div class="cadaver-image">
+  <img alt="MIS Spine Workshop: Cadaver Lab Support and Surgeon Training" src="5.jpg"/>
+  <div class="cadaver-caption">MIS Spine Workshop: Cadaver Lab Support and Surgeon Training</div>
+</div>
+<div class="cadaver-desc">
+        Assisting in a spine cadaver workshop focused on minimally invasive surgery (MIS) techniques. Provided technical support for procedures including percutaneous screw fixation and endoscopic disk removal using TLIF and XLIF approaches, enhancing surgeon familiarity with advanced navigation-assisted techniques in a simulated surgical environment.
+      </div>
+</div>
+</section>
+<!-- MIS SURGERY SECTION -->
+<section>
+<h2>Minimally Invasive Surgery Support</h2>
+<div class="mis-section">
+<div class="mis-desc">
+        Assisted and supported minimally invasive spine surgery utilizing a neuro-navigation system for precise guidance during multilevel disc removal and fixation. Contributed to over 200 successful spine and cranial procedures, including complex cases such as scoliosis, spinal deformity corrections, brain tumor resections, and biopsies. Provided real-time intraoperative navigation support to enhance surgical accuracy and patient outcomes.
+      </div>
+<div class="mis-image">
+  <img alt="Support MIS Multilevel Disk Removal Using Endoscope and Fixation Surgery" src="6.jpg"/>
+  <div class="mis-caption">Support MIS Multilevel Disk Removal Using Endoscope and Fixation Surgery</div>
+</div>
+</div>
+</section>
+<!-- NEW EANS CONFERENCE SECTION -->
+<section>
+<h2>European Association of Neurosurgical Societies (EANS Conference)</h2>
+<div class="eans-section">
+  <div class="eans-gallery">
+    <div class="eans-card">
+      <div class="eans-image-container">
+        <img alt="EANS Conference 2024 – Bulgaria" src="10.jpg"/>
+      </div>
+      <div class="eans-caption">EANS Conference 2024 – Bulgaria</div>
+    </div>
+    <div class="eans-card">
+      <div class="eans-image-container">
+        <img alt="EANS Conference 2024 – Bulgaria" src="11.jpg"/>
+      </div>
+      <div class="eans-caption">EANS Conference 2024 – Bulgaria</div>
+    </div>
+  </div>
+  <div class="eans-desc">
+    Represented the company at the European Association of Neurosurgical Societies (EANS) Conference 2024 in Bulgaria. Facilitated meetings with leading neurosurgeons and demonstrated the capabilities of the Navient Cranial and Spine Navigation systems. Showcased the clinical value of navigation-assisted procedures and strengthened professional relationships to support business development and clinical adoption across international markets.
+  </div>
+</div>
+</section>
+<!-- NEW ASSICON CONFERENCE SECTION -->
+<section>
+<h2>Annual Conference of the Association of Spine Surgeons of India (ASSICON Conference)</h2>
+<div class="assicon-section">
+  <div class="assicon-gallery">
+    <div class="assicon-card">
+      <div class="assicon-image-container">
+        <img alt="ASSICON Conference 2025 – India" src="8.jpg"/>
+      </div>
+      <div class="assicon-caption">ASSICON Conference 2025 – India</div>
+    </div>
+    <div class="assicon-card">
+      <div class="assicon-image-container">
+        <img alt="ASSICON Conference 2025 – India" src="9.jpg"/>
+      </div>
+      <div class="assicon-caption">ASSICON Conference 2025 – India</div>
+    </div>
+  </div>
+  <div class="assicon-desc">
+    Represented the company at the ASSICON 2025 conference in India, a premier event for spine surgeons. Coordinated and conducted meetings with key surgeons, providing hands-on demonstrations of the Navient Cranial and Spine Navigation systems. Highlighted the system's clinical benefits in spine and neuro procedures, contributing to increased awareness and engagement with navigation-assisted surgical technologies in the region.
+  </div>
+</div>
+</section>
+<!-- NEW ROBARTS RESEARCH SECTION -->
+<section>
+<h2>🔬 Hands-on Experience at Robarts Research Center — London, Ontario 🇨🇦</h2>
+<div class="robarts-section">
+  <div class="robarts-gallery">
+    <div class="robarts-card">
+      <div class="robarts-image-container">
+        <img alt="Robarts Research Center Training" src="15.jpg"/>
+      </div>
+      <div class="robarts-caption">Robarts Research Center Training</div>
+    </div>
+    <div class="robarts-card">
+      <div class="robarts-image-container">
+        <img alt="Spinal Navigation Practice" src="16.jpg"/>
+      </div>
+      <div class="robarts-caption">Spinal Navigation Practice</div>
+    </div>
+  </div>
+  <div class="robarts-desc">
+    I had the opportunity to participate in a specialized training program focused on spinal navigation and instrumentation. During this hands-on session, I performed screw placements in the lumbar spine region using porcine models (pig spines), which are commonly utilized in surgical research and education due to their close anatomical resemblance to human spinal structures.
+    <br><br>
+    <strong>Key highlights of the training included:</strong>
+    <ul>
+      <li>Gaining practical experience in navigation-assisted spinal procedures</li>
+      <li>Understanding the critical importance of precision, accuracy, and safety in screw placement</li>
+      <li>Enhancing my knowledge of spinal anatomy and instrumentation techniques</li>
+      <li>Strengthening my ability to support surgeons during live surgical procedures</li>
+    </ul>
+    <br>
+    <strong>Anatomical Similarities of Porcine and Human Spines:</strong>
+    <ul>
+      <li>Comparable vertebral size, shape, and alignment</li>
+      <li>Similar bone density and mechanical properties</li>
+      <li>Analogous intervertebral disc structure and biomechanics</li>
+      <li>Realistic surgical access and operative approach</li>
+    </ul>
+    <br>
+    This experience has significantly advanced my technical competencies as a Clinical Application Engineer, further equipping me to provide expert intraoperative support, system training, and troubleshooting in complex surgical environments.
+    <br><br>
+    I remain committed to continuous learning and contributing to the advancement of surgical navigation technologies and patient care.
+  </div>
+</div>
+</section>
+</body>
+</html>
